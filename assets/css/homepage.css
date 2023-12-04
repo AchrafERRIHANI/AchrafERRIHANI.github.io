@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sedgwick+Ave+Display&display=swap');
+
+body {
+    font-family: 'Bebas Neue', sans-serif;
+    background-image:  url("https://i.ibb.co/fqmr3Gm/2206-w019-n002-621b-p15-621.jpg");
+    font-size: 3em;
+    color:blue;
+    text-align: center;
+    height: 100%;
+    
+    margin-top: 3%;
+  }
+  a{
+    color: white;
+  }
+  .btn{
+    border-radius: 10px;
+    background: rgb(213, 14, 14);
+    color: rgb(244, 244, 244);
+    border: solid 1px white;
+    font-size: 0.3em;
+    padding: 10px 10px;
+    width: 200px;
+    height: 55px;
+    margin: 20px 10px 10px 0;
+    outline: none;
+  }
+  .btn:hover{
+    transition: 1s;
+    background-color: blue;
+    width: 100px;
+    height: 125px;
+    color: white;
+    text-align: left;
+  }
+
+
+footer {
+   
+    height: fixed;  
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.7rem;
+    width: 100%;
+    background-color:rgb(218, 12, 12);
+    color: white;
+    box-shadow: 10px 5px 5px black;
+    
+  }
+
+  .baniere{
+    margin-top: 20px;
+    display:flex;
+    justify-content: space-between;
+    margin: 20px;
+    flex-basis: 200px;
+    align-items: center;
+    text-align: left;
+  }
+  #profil {
+  
+    position: relative;
+    margin: 20px;
+    border-radius: 50%;
+    clip-path:ellipse(50% 50%);
+    
+  }

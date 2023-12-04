@@ -1,3 +1,5 @@
+//Une alerte au lancement de la page qui demande a l'utilisateur est il pret pour jouer.
+alert('Est tu prêt pour jouer ce jeu?')
 //const
 const container = document.getElementById("alphabetButtons");
 var answerDisplay = document.getElementById("hold");
@@ -42,50 +44,47 @@ function handleClick(event) {
   return;
 }
 
-//word array
+//indices, Mots et les questions pour le jeu.
 const question = [
-  "The Chosen Category Is Premier League Football Teams",
-  "The Chosen Category Is Films",
-  "The Chosen Category Is Cities"
+  "La catégorie choisie est celle des équipes des équipes nationale africaine",
+  "La catégorie choisie est celle des Légumes ",
+  "La catégorie choisie est pays"
 ];
 
 const categories = [
   [
-    "everton",
-    "liverpool",
-    "swansea",
-    "chelsea",
-    "hull",
-    "manchester-city",
-    "newcastle-united"
+    "maroc",
+    "egypte",
+    "senegal",
+    "nigeria",
+    "tunisie",
   ],
-  ["alien", "dirty-harry", "gladiator", "finding-nemo", "jaws"],
-  ["manchester", "milan", "madrid", "amsterdam", "prague"]
+  ["lentilles", "pois-chiches", "haricots-noirs", "haricots-rouges", "pois"],
+  ["amerique", "canada", "algerie", "france", "espagne"]
 ];
 
 const hints = [
   [
-    "Based in Mersyside",
-    "Based in Mersyside",
-    "First Welsh team to reach the Premier Leauge",
-    "Owned by A russian Billionaire",
-    "Once managed by Phil Brown",
-    "2013 FA Cup runners up",
-    "Gazza's first club"
+    "Ils ont participé à plusieurs Coupes du Monde de la FIFA.",
+    "Surnom de l'équipe : Les Pharaons.",
+    "Ont connus des succès notables sur la scène internationale, y compris des participations remarquables en Coupe du Monde.",
+    "Ont remporté plusieurs fois la Coupe d'Afrique des Nations (CAN) et ont participé à plusieurs Coupes du Monde de la FIFA.",
+    "nt remporté la Coupe d'Afrique des Nations (CAN) et ont été une équipe régulière en phase finale de la Coupe du Monde.",
+ 
   ],
   [
-    "Science-Fiction horror film",
-    "1971 American action film",
-    "Historical drama",
-    "Anamated Fish",
-    "Giant great white shark"
+    "Disponibles dans diverses couleurs telles que le vert, le brun, le rouge et le noir. Elles sont riches en protéines, en fibres et en divers nutriments essentiels.",
+    "Rondes et beige au goût noiseté. Ils sont un ingrédient clé dans des plats tels que le houmous et sont une bonne source de protéines et de fibres alimentaires.",
+    "Ils sont de petites légumineuses sombres souvent utilisées dans la cuisine latino-américaine. Ils sont une bonne source de protéines, de fibres et de diverses vitamines et minéraux.",
+    "Ils sont couramment utilisés dans le chili et d'autres plats copieux et constituent une bonne source de protéines, de fibres et de divers nutriments.",
+    "Des légumineuses vertes ou jaunes qui se présentent sous forme de gousses."
   ],
   [
-    "Northern city in the UK",
-    "Home of AC and Inter",
-    "Spanish capital",
-    "Netherlands capital",
-    "Czech Republic capital"
+    "Il est composé de 50 États.",
+    "C'est le deuxième plus grand pays du monde en termes de superficie.",
+    "Il a obtenu son indépendance de la France en 1962.",
+    "Le pays le plus connu pour la Fashion Week",
+    "C'est un pays d'Europe du Sud"
   ]
 ];
 
@@ -121,7 +120,7 @@ function generateAnswerDisplay(word) {
 }
 
 function showHint() {
-  containerHint.innerHTML = `Clue - ${hint}`;
+  containerHint.innerHTML = `Indice - ${hint}`;
 }
 
 buttonHint.addEventListener("click", showHint);
@@ -134,8 +133,8 @@ function init() {
   winningCheck = "";
   context.clearRect(0, 0, 400, 400);
   canvas();
-  containerHint.innerHTML = `Clue -`;
-  livesDisplay.innerHTML = `You have ${life} lives!`;
+  containerHint.innerHTML = `homme pendu -`;
+  livesDisplay.innerHTML = `Il te reste ${life} essais!`;
   setAnswer();
   container.innerHTML = generateButton();
   container.addEventListener("click", handleClick);
@@ -154,7 +153,7 @@ function guess(event) {
   const answerArray = answer.split("");
   var counter = 0;
   if (answer === winningCheck) {
-    livesDisplay.innerHTML = `YOU WIN!`;
+    livesDisplay.innerHTML = `vous gagnez`;
     return;
   } else {
     if (life > 0) {
@@ -176,11 +175,11 @@ function guess(event) {
         counter = 0;
       }
       if (life > 1) {
-        livesDisplay.innerHTML = `You have ${life} lives!`;
+        livesDisplay.innerHTML = `Il te reste ${life} essais!`;
       } else if (life === 1) {
-        livesDisplay.innerHTML = `You have ${life} life!`;
+        livesDisplay.innerHTML = `Il te reste ${life} essais!`;
       } else {
-        livesDisplay.innerHTML = `GAME OVER!`;
+        livesDisplay.innerHTML = `Fin de la partie, vous avez perdu`;
       }
     } else {
       return;
@@ -189,7 +188,7 @@ function guess(event) {
     //console.log(counter);
     //console.log(life);
     if (answer === winningCheck) {
-      livesDisplay.innerHTML = `YOU WIN!`;
+      livesDisplay.innerHTML = `vous gagnez`;
       return;
     }
   }
@@ -207,7 +206,7 @@ function canvas() {
   myStickman = document.getElementById("stickman");
   context = myStickman.getContext("2d");
   context.beginPath();
-  context.strokeStyle = "#fff";
+  context.strokeStyle = "black";
   context.lineWidth = 2;
 }
 
@@ -273,3 +272,32 @@ var drawArray = [
   frame2,
   frame1
 ];
+
+// function pour que l'utilisateur puisse ajouter des mots dans le jeu
+// avec un tableau de tout les mots qui sont deja disponible dans le jeu
+var motsPendu = [
+ "maroc",
+  "egypte",
+  "senegal",
+  "nigeria",
+  "tunisie",
+  "amerique", "canada", "algerie", "france", "espagne",
+  "lentilles", "pois-chiches", "haricots-noirs", "haricots-rouges", "pois"
+];
+
+function ajouterNouveauMot() {
+    var nouveauMot = prompt("Entrez le nouveau mot pour le jeu du pendu:");
+    if (nouveauMot) {
+        ajouterMotAuPendu(nouveauMot);
+    }
+}
+// si le mots est deja dans la liste il sera impossible de le rajouter, sinon le mot sera ajouter avec succes 
+function ajouterMotAuPendu(nouveauMot) {
+    if (!motsPendu.includes(nouveauMot)) {
+        motsPendu.push(nouveauMot);
+        console.log("Mot ajouté avec succès au jeu du pendu!");
+    } else {
+        console.log("Le mot est déjà dans la liste.");
+    }
+}
+

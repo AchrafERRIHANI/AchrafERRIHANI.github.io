@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Jeu Bonhomme Pendu</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <script defer src="assets/Js/Javascript.js"></script>
 </head>
 <body>
+  
+  <button id="accueil"><a href="Homepage.html"> accueil </a></button>
     <div class="wrapper">
-      <h1>Hangman</h1>
-      <h2>Vanilla Javascript Hangman Game</h2>
+      <h1 >JEU</h1>
+      <h2 > Bonhomme Pendu</h2>
       <p>
-        Use the alphabet below to guess the word, or click hint to get a clue.
+        Utilisez l'alphabet ci-dessous pour deviner le mot, ou cliquez sur indice pour obtenir un indice.
       </p>
     </div>
 
@@ -21,17 +23,37 @@
       <p id="categoryName"></p>
       <div id="hold"></div>
       <p id="mylives"></p>
-      <p id="clue">Clue -</p>
+      <p id="clue">Indice -</p>
       <canvas id="stickman"
         >This Text will show if the Browser does NOT support HTML5 Canvas
         tag</canvas
       >
       <div class="container">
-        <button class="btn-2" id="hint">Hint</button>
-        <button class="btn-2" id="reset">Play again</button>
+        <button class="btn-2" id="hint">indice</button>
+        <button class="btn-2" id="reset">Rejouer</button>
+        <button class="btn-3" onclick="ajouterNouveauMot()">Ajouter un nouveau mot</button>
+
       </div>
     </div>
-    <script src="src/index.js"></script>
+     
+    <footer>
+      <div class="baniere">
+        <p> Inspiration de projet : 
+          <br> <a href="https://codesandbox.io/s/z9fhk"> https://codesandbox.io/s/z9fhk  </a>
+        </p>
+          
+        
+     
+        <p>Achraf ERRIHANI 
+          <br> 
+          Numero DA : 2346151
+          <br>
+          Design WEB A2023 </p>
+
+         <a href="mailto:2346151@etudiant.cegepvicto.caa"> <img id="profil" src="assets/Images/385912562_2600681373414204_8458298660741127424_n.jpg" alt="" width="120px" height="120px">
+        </a>
+    </div>
+    </footer>
 </body>
 </html>
 
